@@ -358,6 +358,15 @@ Affs:
 2. 网站是否更改了签到接口
 3. 查看 Actions 运行日志获取详细错误信息
 
+### 定时任务因仓库不活跃被停用
+
+如果 Actions 中显示工作流因不活跃被停用，请先在 Actions 页面启用
+`GitHub Workflow Immortality`，再手动运行一次该工作流，以重新启用本仓库的定时任务。
+
+保活工作流每月运行一次，使用 GitHub 自动提供的临时 `GITHUB_TOKEN` 和
+`actions: write` 权限，只维护当前仓库，无需配置 `ACTIONS_TRIGGER_PAT`。
+旧配置若缺少该 Secret，会在启用工作流时返回 `401 Requires authentication`。
+
 ## 本地开发环境设置
 
 如果你需要在本地测试或开发，请按照以下步骤设置：
